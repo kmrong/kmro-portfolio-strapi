@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "design_tiles",
+  "info": {
+    "singularName": "design-tile",
+    "pluralName": "design-tiles",
+    "displayName": "Design_tiles"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Category": {
+      "type": "string"
+    },
+    "Industry": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Preview": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "design_page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::design-page.design-page",
+      "mappedBy": "design_tile"
+    }
+  }
+}

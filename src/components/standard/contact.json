@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_standard_contacts",
+  "info": {
+    "displayName": "Contact",
+    "icon": "envelop"
+  },
+  "options": {},
+  "attributes": {
+    "Email": {
+      "type": "email"
+    }
+  }
+}

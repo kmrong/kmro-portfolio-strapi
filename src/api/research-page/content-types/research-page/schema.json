@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "research_pages",
+  "info": {
+    "singularName": "research-page",
+    "pluralName": "research-pages",
+    "displayName": "Research-page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Category": {
+      "type": "string"
+    },
+    "Involvement": {
+      "type": "string"
+    },
+    "Preview": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "research_page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::research-tile.research-tile",
+      "mappedBy": "research_tiles"
+    },
+    "Overview": {
+      "type": "richtext"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "MainContent": {
+      "type": "dynamiczone",
+      "components": [
+        "projects.project-carousel",
+        "projects.project-image"
+      ]
+    }
+  }
+}

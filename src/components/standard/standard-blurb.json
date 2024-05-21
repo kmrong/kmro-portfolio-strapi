@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_about_standard_blurbs",
+  "info": {
+    "displayName": "StandardBlurb",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "SectionHeader": {
+      "type": "string"
+    },
+    "Paragraph": {
+      "type": "richtext"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "design_pages",
+  "info": {
+    "singularName": "design-page",
+    "pluralName": "design-pages",
+    "displayName": "Design_page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Category": {
+      "type": "string"
+    },
+    "Involvement": {
+      "type": "string"
+    },
+    "MainContent": {
+      "type": "dynamiczone",
+      "components": [
+        "projects.project-carousel",
+        "projects.project-image"
+      ]
+    },
+    "Preview": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "design_tile": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::design-tile.design-tile",
+      "inversedBy": "design_page"
+    },
+    "Overview": {
+      "type": "richtext"
+    }
+  }
+}

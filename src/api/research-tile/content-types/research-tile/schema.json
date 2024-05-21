@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "research_tiles",
+  "info": {
+    "singularName": "research-tile",
+    "pluralName": "research-tiles",
+    "displayName": "Research_tiles",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Category": {
+      "type": "string"
+    },
+    "Industry": {
+      "type": "string"
+    },
+    "Preview": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "research_tiles": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::research-page.research-page",
+      "inversedBy": "research_page"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_projects_project_carousels",
+  "info": {
+    "displayName": "projectCarousel",
+    "icon": "plus",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "projectImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "projectCaption": {
+      "type": "text"
+    }
+  }
+}

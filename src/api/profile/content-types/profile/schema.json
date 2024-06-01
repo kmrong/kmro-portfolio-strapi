@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
-  "collectionName": "design_tiles",
+  "kind": "singleType",
+  "collectionName": "profiles",
   "info": {
-    "singularName": "design-tile",
-    "pluralName": "design-tiles",
-    "displayName": "Design_tiles"
+    "singularName": "profile",
+    "pluralName": "profiles",
+    "displayName": "Profile"
   },
   "options": {
     "draftAndPublish": true
@@ -14,16 +14,10 @@
     "Title": {
       "type": "string"
     },
-    "Category": {
-      "type": "string"
+    "Paragraph": {
+      "type": "blocks"
     },
-    "Industry": {
-      "type": "string"
-    },
-    "Description": {
-      "type": "text"
-    },
-    "Preview": {
+    "Snapshot": {
       "allowedTypes": [
         "images",
         "files",

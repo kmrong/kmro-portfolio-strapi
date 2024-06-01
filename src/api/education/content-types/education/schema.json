@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "educations",
+  "info": {
+    "singularName": "education",
+    "pluralName": "educations",
+    "displayName": "Education",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Credentials": {
+      "type": "dynamiczone",
+      "components": [
+        "standard.credential"
+      ]
+    }
+  }
+}

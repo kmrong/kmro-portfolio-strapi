@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "certifications",
+  "info": {
+    "singularName": "certification",
+    "pluralName": "certifications",
+    "displayName": "Certification",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Credentials": {
+      "type": "dynamiczone",
+      "components": [
+        "standard.certificate"
+      ]
+    }
+  }
+}

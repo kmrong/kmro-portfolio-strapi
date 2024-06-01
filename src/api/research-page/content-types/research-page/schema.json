@@ -29,12 +29,6 @@
         "audios"
       ]
     },
-    "research_page": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::research-tile.research-tile",
-      "mappedBy": "research_tiles"
-    },
     "Overview": {
       "type": "richtext"
     },
@@ -47,6 +41,12 @@
         "projects.project-carousel",
         "projects.project-image"
       ]
+    },
+    "ThumbnailBlurb": {
+      "type": "blocks"
+    },
+    "Industry": {
+      "type": "string"
     }
   }
 }

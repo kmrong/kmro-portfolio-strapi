@@ -39,14 +39,14 @@
         "audios"
       ]
     },
-    "design_tile": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::design-tile.design-tile",
-      "inversedBy": "design_page"
-    },
     "Overview": {
       "type": "richtext"
+    },
+    "ThumbnailBlurb": {
+      "type": "richtext"
+    },
+    "Industry": {
+      "type": "string"
     }
   }
 }

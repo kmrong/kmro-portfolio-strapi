@@ -34,12 +34,6 @@
         "videos",
         "audios"
       ]
-    },
-    "research_tiles": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::research-page.research-page",
-      "inversedBy": "research_page"
     }
   }
 }

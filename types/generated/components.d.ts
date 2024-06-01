@@ -25,6 +25,20 @@ export interface ProjectsProjectImage extends Schema.Component {
   };
 }
 
+export interface StandardCertificate extends Schema.Component {
+  collectionName: 'components_standard_certificates';
+  info: {
+    displayName: 'Certificate';
+    description: '';
+  };
+  attributes: {
+    Source: Attribute.String;
+    Date: Attribute.String;
+    Logo: Attribute.Media;
+    Title: Attribute.Blocks;
+  };
+}
+
 export interface StandardContact extends Schema.Component {
   collectionName: 'components_standard_contacts';
   info: {
@@ -33,6 +47,21 @@ export interface StandardContact extends Schema.Component {
   };
   attributes: {
     Email: Attribute.Email;
+  };
+}
+
+export interface StandardCredential extends Schema.Component {
+  collectionName: 'components_standard_credentials';
+  info: {
+    displayName: 'Credential';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Source: Attribute.String;
+    Location: Attribute.String;
+    Date: Attribute.String;
+    Awards: Attribute.Blocks;
   };
 }
 
@@ -54,7 +83,9 @@ declare module '@strapi/types' {
     export interface Components {
       'projects.project-carousel': ProjectsProjectCarousel;
       'projects.project-image': ProjectsProjectImage;
+      'standard.certificate': StandardCertificate;
       'standard.contact': StandardContact;
+      'standard.credential': StandardCredential;
       'standard.standard-blurb': StandardStandardBlurb;
     }
   }

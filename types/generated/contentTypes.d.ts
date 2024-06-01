@@ -788,12 +788,12 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
-export interface ApiAboutAbout extends Schema.SingleType {
-  collectionName: 'abouts';
+export interface ApiCertificationCertification extends Schema.SingleType {
+  collectionName: 'certifications';
   info: {
-    singularName: 'about';
-    pluralName: 'abouts';
-    displayName: 'AboutMe';
+    singularName: 'certification';
+    pluralName: 'certifications';
+    displayName: 'Certification';
     description: '';
   };
   options: {
@@ -801,22 +801,18 @@ export interface ApiAboutAbout extends Schema.SingleType {
   };
   attributes: {
     Title: Attribute.String;
-    Paragraphs: Attribute.RichText;
-    Image: Attribute.Media;
-    AddContent: Attribute.DynamicZone<
-      ['standard.standard-blurb', 'standard.contact']
-    >;
+    Credentials: Attribute.DynamicZone<['standard.certificate']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::about.about',
+      'api::certification.certification',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::about.about',
+      'api::certification.certification',
       'oneToOne',
       'admin::user'
     > &
@@ -843,12 +839,9 @@ export interface ApiDesignPageDesignPage extends Schema.CollectionType {
       ['projects.project-carousel', 'projects.project-image']
     >;
     Preview: Attribute.Media;
-    design_tile: Attribute.Relation<
-      'api::design-page.design-page',
-      'oneToOne',
-      'api::design-tile.design-tile'
-    >;
     Overview: Attribute.RichText;
+    ThumbnailBlurb: Attribute.RichText;
+    Industry: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -883,11 +876,6 @@ export interface ApiDesignTileDesignTile extends Schema.CollectionType {
     Industry: Attribute.String;
     Description: Attribute.Text;
     Preview: Attribute.Media;
-    design_page: Attribute.Relation<
-      'api::design-tile.design-tile',
-      'oneToOne',
-      'api::design-page.design-page'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -899,6 +887,70 @@ export interface ApiDesignTileDesignTile extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::design-tile.design-tile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEducationEducation extends Schema.SingleType {
+  collectionName: 'educations';
+  info: {
+    singularName: 'education';
+    pluralName: 'educations';
+    displayName: 'Education';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Credentials: Attribute.DynamicZone<['standard.credential']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::education.education',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::education.education',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProfileProfile extends Schema.SingleType {
+  collectionName: 'profiles';
+  info: {
+    singularName: 'profile';
+    pluralName: 'profiles';
+    displayName: 'Profile';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Paragraph: Attribute.Blocks;
+    Snapshot: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::profile.profile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::profile.profile',
       'oneToOne',
       'admin::user'
     > &
@@ -921,16 +973,13 @@ export interface ApiResearchPageResearchPage extends Schema.CollectionType {
     Category: Attribute.String;
     Involvement: Attribute.String;
     Preview: Attribute.Media;
-    research_page: Attribute.Relation<
-      'api::research-page.research-page',
-      'oneToOne',
-      'api::research-tile.research-tile'
-    >;
     Overview: Attribute.RichText;
     Title: Attribute.String;
     MainContent: Attribute.DynamicZone<
       ['projects.project-carousel', 'projects.project-image']
     >;
+    ThumbnailBlurb: Attribute.Blocks;
+    Industry: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -966,11 +1015,6 @@ export interface ApiResearchTileResearchTile extends Schema.CollectionType {
     Category: Attribute.String;
     Industry: Attribute.String;
     Preview: Attribute.Media;
-    research_tiles: Attribute.Relation<
-      'api::research-tile.research-tile',
-      'oneToOne',
-      'api::research-page.research-page'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1007,9 +1051,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
-      'api::about.about': ApiAboutAbout;
+      'api::certification.certification': ApiCertificationCertification;
       'api::design-page.design-page': ApiDesignPageDesignPage;
       'api::design-tile.design-tile': ApiDesignTileDesignTile;
+      'api::education.education': ApiEducationEducation;
+      'api::profile.profile': ApiProfileProfile;
       'api::research-page.research-page': ApiResearchPageResearchPage;
       'api::research-tile.research-tile': ApiResearchTileResearchTile;
     }

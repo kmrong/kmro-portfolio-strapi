@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_standard_certificates",
+  "info": {
+    "displayName": "Certificate",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Source": {
+      "type": "string"
+    },
+    "Date": {
+      "type": "string"
+    },
+    "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Title": {
+      "type": "blocks"
+    }
+  }
+}

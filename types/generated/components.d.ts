@@ -8,8 +8,8 @@ export interface ProjectsProjectCarousel extends Schema.Component {
     description: '';
   };
   attributes: {
-    projectImages: Attribute.Media;
-    projectCaption: Attribute.Text;
+    projectImage: Attribute.Media;
+    projectCaption: Attribute.RichText;
   };
 }
 
@@ -21,7 +21,7 @@ export interface ProjectsProjectImage extends Schema.Component {
   };
   attributes: {
     projectImage: Attribute.Media;
-    projectCaption: Attribute.Text;
+    projectCaption: Attribute.RichText;
   };
 }
 

@@ -15,7 +15,7 @@
     "Title": {
       "type": "string"
     },
-    "Category": {
+    "Industry": {
       "type": "string"
     },
     "Involvement": {
@@ -45,8 +45,17 @@
     "ThumbnailBlurb": {
       "type": "richtext"
     },
-    "Industry": {
-      "type": "string"
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "All",
+        "Branding & Identity",
+        "Experience & Interaction",
+        "Editorial & Promotion",
+        "Information",
+        "Motion",
+        "Misc"
+      ]
     }
   }
 }

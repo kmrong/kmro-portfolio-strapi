@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "preview_banners",
+  "info": {
+    "singularName": "preview-banner",
+    "pluralName": "preview-banners",
+    "displayName": "PreviewBanner"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PreviewReel": {
+      "allowedTypes": ["images", "files", "videos", "audios"],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -788,6 +788,62 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiCaseStudySampleCaseStudySample
+  extends Schema.CollectionType {
+  collectionName: 'case_study_samples';
+  info: {
+    singularName: 'case-study-sample';
+    pluralName: 'case-study-samples';
+    displayName: 'CaseStudySample';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Industry: Attribute.String;
+    Category: Attribute.Enumeration<
+      [
+        'All',
+        'Branding & Identity',
+        'Experience & Interaction',
+        'Editorial & Promotion',
+        'Information',
+        'Motion',
+        'Misc'
+      ]
+    >;
+    Preview: Attribute.Media;
+    design_page: Attribute.Relation<
+      'api::case-study-sample.case-study-sample',
+      'oneToOne',
+      'api::design-page.design-page'
+    >;
+    research_page: Attribute.Relation<
+      'api::case-study-sample.case-study-sample',
+      'oneToOne',
+      'api::research-page.research-page'
+    >;
+    ThumbnailBlurb: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::case-study-sample.case-study-sample',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::case-study-sample.case-study-sample',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCertificationCertification extends Schema.SingleType {
   collectionName: 'certifications';
   info: {
@@ -833,7 +889,7 @@ export interface ApiDesignPageDesignPage extends Schema.CollectionType {
   };
   attributes: {
     Title: Attribute.String;
-    Category: Attribute.String;
+    Industry: Attribute.String;
     Involvement: Attribute.String;
     MainContent: Attribute.DynamicZone<
       ['projects.project-carousel', 'projects.project-image']
@@ -841,7 +897,17 @@ export interface ApiDesignPageDesignPage extends Schema.CollectionType {
     Preview: Attribute.Media;
     Overview: Attribute.RichText;
     ThumbnailBlurb: Attribute.RichText;
-    Industry: Attribute.String;
+    Category: Attribute.Enumeration<
+      [
+        'All',
+        'Branding & Identity',
+        'Experience & Interaction',
+        'Editorial & Promotion',
+        'Information',
+        'Motion',
+        'Misc'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -926,6 +992,36 @@ export interface ApiEducationEducation extends Schema.SingleType {
   };
 }
 
+export interface ApiPreviewBannerPreviewBanner extends Schema.SingleType {
+  collectionName: 'preview_banners';
+  info: {
+    singularName: 'preview-banner';
+    pluralName: 'preview-banners';
+    displayName: 'PreviewBanner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    PreviewReel: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::preview-banner.preview-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::preview-banner.preview-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProfileProfile extends Schema.SingleType {
   collectionName: 'profiles';
   info: {
@@ -963,23 +1059,31 @@ export interface ApiResearchPageResearchPage extends Schema.CollectionType {
   info: {
     singularName: 'research-page';
     pluralName: 'research-pages';
-    displayName: 'Research-page';
+    displayName: 'Research_page';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Category: Attribute.String;
+    Title: Attribute.String;
+    Category: Attribute.Enumeration<
+      [
+        'All',
+        'Branding & Marketing',
+        'Experience & Interaction',
+        'Emerging Tech',
+        'Misc'
+      ]
+    >;
     Involvement: Attribute.String;
+    Industry2: Attribute.String;
     Preview: Attribute.Media;
     Overview: Attribute.RichText;
-    Title: Attribute.String;
+    ThumbnailBlurb: Attribute.RichText;
     MainContent: Attribute.DynamicZone<
       ['projects.project-carousel', 'projects.project-image']
     >;
-    ThumbnailBlurb: Attribute.Blocks;
-    Industry: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1051,10 +1155,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::case-study-sample.case-study-sample': ApiCaseStudySampleCaseStudySample;
       'api::certification.certification': ApiCertificationCertification;
       'api::design-page.design-page': ApiDesignPageDesignPage;
       'api::design-tile.design-tile': ApiDesignTileDesignTile;
       'api::education.education': ApiEducationEducation;
+      'api::preview-banner.preview-banner': ApiPreviewBannerPreviewBanner;
       'api::profile.profile': ApiProfileProfile;
       'api::research-page.research-page': ApiResearchPageResearchPage;
       'api::research-tile.research-tile': ApiResearchTileResearchTile;

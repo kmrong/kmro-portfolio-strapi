@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "research_pages",
+  "collectionName": "case_study_samples",
   "info": {
-    "singularName": "research-page",
-    "pluralName": "research-pages",
-    "displayName": "Research_page",
+    "singularName": "case-study-sample",
+    "pluralName": "case-study-samples",
+    "displayName": "CaseStudySample",
     "description": ""
   },
   "options": {
@@ -15,21 +15,11 @@
     "Title": {
       "type": "string"
     },
-    "Category": {
-      "type": "enumeration",
-      "enum": [
-        "All",
-        "Branding & Marketing",
-        "Experience & Interaction",
-        "Emerging Tech",
-        "Misc"
-      ]
-    },
-    "Involvement": {
+    "Industry": {
       "type": "string"
     },
-    "Industry2": {
-      "type": "string",
+    "Category": {
+      "type": "enumeration",
       "enum": [
         "All",
         "Branding & Identity",
@@ -51,18 +41,18 @@
         "audios"
       ]
     },
-    "Overview": {
-      "type": "richtext"
+    "design_page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::design-page.design-page"
+    },
+    "research_page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::research-page.research-page"
     },
     "ThumbnailBlurb": {
       "type": "richtext"
-    },
-    "MainContent": {
-      "type": "dynamiczone",
-      "components": [
-        "projects.project-carousel",
-        "projects.project-image"
-      ]
     }
   }
 }
